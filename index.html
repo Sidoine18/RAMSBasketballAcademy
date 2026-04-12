@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAMS Basketball Academy | Excellence & Formation</title>
+    <meta name="description" content="RAMS Basketball Academy est une académie de basketball qui propose un encadrement complet pour les jeunes joueurs tout au long de l’année.
+Elle a pour objectif principal de développer les compétences techniques, physiques et mentales des joueurs à travers des séances d’entraînement régulières, du travail de skill training et des matchs d’application. L’académie met l’accent sur une pratique continue du basketball, des formations spécifiques en informatique et an anglais afin de favoriser une progression constante et durable..">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff5e00; /* Orange Basketball */
+            --dark: #0a0a0a;    /* Noir profond */
+            --light: #ffffff;
+            --gray: #1a1a1a;
+            --text-muted: #cccccc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--dark); color: var(--light); line-height: 1.6; }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 1px; }
+        .logo span { color: var(--primary); }
+
+        .nav-menu { display: flex; gap: 1.5rem; }
+        .nav-menu a { color: var(--light); text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: 0.3s; text-transform: uppercase; }
+        .nav-menu a:hover { color: var(--primary); }
+
+        .menu-toggle { display: none; font-size: 2rem; cursor: pointer; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/basket.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content h1 { font-family: 'Bebas Neue', sans-serif; font-size: 5rem; line-height: 1; margin-bottom: 1.5rem; }
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 5px;
+            transition: 0.3s ease;
+            display: inline-block;
+        }
+        .btn:hover { transform: scale(1.05); background: #e65500; }
+
+        /* --- SECTIONS --- */
+        section { padding: 5rem 5%; }
+        h2 { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; margin-bottom: 2rem; text-align: center; border-left: 5px solid var(--primary); padding-left: 15px; }
+
+        /* --- FORMATIONS (CARDS) --- */
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card { background: var(--gray); border-radius: 10px; overflow: hidden; transition: 0.3s; border: 1px solid #333; }
+        .card:hover { border-color: var(--primary); transform: translateY(-10px); }
+        .card img { width: 100%; height: 250px; object-fit: cover; }
+        .card-body { padding: 1.5rem; }
+        .card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--primary); margin-bottom: 1rem; }
+
+        /* --- MATCHS & GALERIE --- */
+        .match { background: #111; margin-bottom: 3rem; padding: 2rem; border-radius: 5px; border-top: 4px solid var(--primary); }
+        .match h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--primary); }
+        .match p { margin: 1rem 0; font-size: 1.1rem; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-top: 1.5rem; }
+        .gallery img { width: 100%; height: 150px; object-fit: cover; border-radius: 3px; cursor: pointer; filter: grayscale(40%); transition: 0.3s; }
+        .gallery img:hover { filter: grayscale(0%); transform: scale(1.05); }
+
+        /* --- VIDEOS / ENGAGEMENT / SHOP --- */
+        .highlight-box { background: linear-gradient(45deg, #1a1a1a, #0a0a0a); padding: 3rem; border-radius: 10px; text-align: center; margin-bottom: 2rem; }
+        .youtube-btn { background: #ff0000; color: white; padding: 0.8rem 2rem; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 1rem; font-weight: bold; }
+
+        /* --- CONTACT --- */
+        .contact ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+        .contact li { background: var(--gray); padding: 1rem; border-radius: 5px; }
+        .contact a { color: var(--primary); text-decoration: none; font-weight: bold; }
+
+        /* --- FOOTER --- */
+        footer { text-align: center; padding: 2rem; background: #000; border-top: 1px solid #333; color: var(--text-muted); }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-menu { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--dark); padding: 2rem; border-bottom: 2px solid var(--primary); }
+            .nav-menu.active { display: flex; }
+            .menu-toggle { display: block; }
+            .hero-content h1 { font-size: 3rem; }
+        }
+
+        /* --- SECTION CONTACT ACCUEIL --- */
+.contact-section {
+    padding: 80px 5%;
+    background: #050505;
+    text-align: center;
+}
+
+.contact-intro {
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 35px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-card:hover {
+    background: var(--primary); /* L'orange flash au survol */
+    transform: translateY(-10px);
+    border-color: var(--primary);
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.contact-card:hover .contact-icon {
+    transform: scale(1.2);
+}
+
+.contact-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.contact-card p {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.contact-card:hover p {
+    color: rgba(255,255,255,0.8);
+}
+
+.btn-sm {
+    font-size: 0.75rem;
+    background: #222;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.contact-card:hover .btn-sm {
+    background: white;
+    color: var(--primary);
+}
+
+.highlight { color: var(--primary); }
+
+/* Responsive */
+@media (max-width: 600px) {
+    .contact-grid { grid-template-columns: 1fr; }
+}
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">🏀 RAMS <span>BASKETBALL</span></div>
+    <div class="menu-toggle" id="menuToggle">☰</div>
+    <nav id="mobileMenu" class="nav-menu">
+        <a href="index.html">Accueil</a>
+        <a href="president.html">Mot du Président</a>
+        <a href="programme_fille.html">Programme Filles</a>
+        <a href="partenaire.html">Devenir Partenaire</a>
+        <a href="boutique.html">Boutique</a>
+        <a href="inscription.html">Inscription</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>RAMS BASKETBALL ACADEMY</h1>
+        <a href="inscription.html" class="btn">Rejoignez l'élite maintenant</a>
+    </div>
+</section>
+
+<section id="formations">
+    <h2>Nos Formations</h2>
+    <div class="cards">
+        <div class="card">
+            <img src="images/basket.jpg" alt="Formation Basket">
+            <div class="card-body">
+                <h3>BASKETBALL</h3>
+                <p>Améliorez vos compétences avec nos coaches professionnels.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/anglais.jpg" alt="Formation Anglais">
+            <div class="card-body">
+                <h3>ANGLAIS</h3>
+                <p>Des cours d’anglais adaptés pour tous les âges et niveaux.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/informatique.jpg" alt="Formation Informatique">
+            <div class="card-body">
+                <h3>INFORMATIQUE</h3>
+                <p>Initiation et perfectionnement en informatique et digital.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="evenements">
+    <h2>Événements & Matchs Récents</h2>
+
+    <article class="match">
+        <h3>3e journée championnat départemental U13</h3>
+        <p><strong>SIKA BASKETBALL VS RAMS BASKETBALL ACADEMY</strong></p>
+        <div class="gallery">
+            <img src="images/sika_vs_rams_1.jpg" alt="SIKA vs RAMS">
+            <img src="images/sika_vs_rams_2.jpg" alt="SIKA vs RAMS">
+            <img src="images/sika_vs_rams_3.jpg" alt="SIKA vs RAMS">
+            <img src="images/sika_vs_rams_5.jpg" alt="SIKA vs RAMS">
+        </div>
+    </article>
+
+    <article class="match">
+        <h3>RAMS BASKETBALL U18</h3>
+        <p><strong>RAMS BASKETBALL U18</strong></p>
+        <div class="gallery">
+            <img src="images/u18.jpg" alt="RAMS U18">
+        </div>
+    </article>
+
+    <article class="match">
+        <h3>2e journée championnat départemental U13</h3>
+        <p>Synergie BBC VS RAMS BASKETBALL ACADEMY U13 - samedi 06 Dec 2025 à la Maison des Jeunes de Bohicon à 11h00</p>
+        <div class="gallery">
+            <img src="images/u13match1.jpg" alt="Synergie BBC vs RAMS">
+            <img src="images/u13match2.jpg" alt="Synergie BBC vs RAMS">
+        </div>
+    </article>
+
+    <article class="match">
+        <h3>1ère journée championnat départemental U12</h3>
+        <p><strong>AL BBC 07 - 49 RAMS BASKETBALL ACADEMY</strong></p>
+        <div class="gallery">
+            <img src="images/u12match1.jpg" alt="AL BBC vs RAMS">
+            <img src="images/u12match2.jpg" alt="AL BBC vs RAMS">
+            <img src="images/u12match3.jpg" alt="AL BBC vs RAMS">
+            <img src="images/u12match4.jpg" alt="AL BBC vs RAMS">
+        </div>
+    </article>
+</section>
+
+<section class="youtube-section">
+    <div class="highlight-box">
+        <h2>Nos Vidéos Officielles</h2>
+        <p>Découvrez les entraînements, compétitions, événements spéciaux et moments forts sur notre chaîne YouTube officielle.</p>
+        <p>Performances des joueurs, activités éducatives et programmes dédiés aux jeunes filles.</p>
+        <a href="https://youtube.com/@ramsbasketballacademytv?si=yb4FvzC7GIsg05wH" target="_blank" class="youtube-btn">Accéder à la chaîne YouTube</a>
+    </div>
+</section>
+
+<section class="engagement-section">
+    <div class="highlight-box" style="border-left: 5px solid var(--primary);">
+        <h2>Programme d’Autonomisation des Jeunes Filles</h2>
+        <p>RAMS Basketball Academy s'engage activement dans l’accompagnement des jeunes filles à travers la sensibilisation et le développement personnel.</p>
+        <p>Former une grande athlète, c’est aussi préparer une femme confiante et responsable.</p>
+        <a href="programme_fille.html" class="btn" style="margin-top:1rem;">Découvrir le programme</a>
+    </div>
+</section>
+
+<section class="shop-preview">
+    <div class="highlight-box">
+        <h2>RAMS SPORT SHOP</h2>
+        <p>Découvrez nos équipements officiels, maillots, ballons et matériels sportifs de qualité.</p>
+        <a href="boutique.html" class="btn" style="margin-top:1rem;">Visiter la boutique</a>
+    </div>
+</section>
+
+<section id="contact" class="contact-section">
+    <div class="container">
+        <h2 class="section-title">Rejoignez le <span class="highlight">Roster</span></h2>
+        <p class="contact-intro">Une question ? Une inscription ? Contactez l'académie directement.</p>
+
+        <div class="contact-grid">
+            <a href="https://wa.me/2290166396755" target="_blank" class="contact-card">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                </div>
+                <h3>WhatsApp</h3>
+                <p>Réponse rapide</p>
+                <span class="btn-sm">+229 01 66 39 67 55</span>
+            </a>
+
+            <a href="mailto:ramssports25@gmail.com" class="contact-card">
+                <div class="contact-icon">📧</div>
+                <h3>Email</h3>
+                <p>Administration</p>
+                <span class="btn-sm">ramssports25@gmail.com</span>
+            </a>
+
+            <a href="https://www.facebook.com/profile.php?id=61583315501887" target="_blank" class="contact-card">
+                <div class="contact-icon">📘</div>
+                <h3>Facebook</h3>
+                <p>Suivez l'actualité</p>
+                <span class="btn-sm">RAMS Academy</span>
+            </a>
+
+            <a href="https://youtube.com/@ramsbasketballacademytv?si=yb4FvzC7GIsg05wH" target="_blank" class="contact-card">
+                <div class="contact-icon">🎥</div>
+                <h3>YouTube</h3>
+                <p>Highlights & Vidéos</p>
+                <span class="btn-sm">RAMS TV</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+
+<footer>
+    <p>© 2026 RAMS Basketball Academy - Tous droits réservés</p>
+</footer>
+
+<script>
+    // Menu Mobile
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+    });
+
+    // Fermer le menu si on clique sur un lien (mobile)
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    });
+</script>
+
+</body>
+</html>

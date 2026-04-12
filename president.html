@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Président | RAMS Basketball Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --primary: #ff5e00;
+            --dark: #0a0a0a;
+            --light: #ffffff;
+            --gray: #1a1a1a;
+            --text-muted: #cccccc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--dark); color: var(--light); line-height: 1.6; }
+
+        /* --- HEADER & NAV (IDENTIQUE ACCUEIL) --- */
+        header {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 1px; }
+        .logo span { color: var(--primary); }
+
+        .nav-menu { display: flex; gap: 1.5rem; }
+        .nav-menu a { color: var(--light); text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: 0.3s; text-transform: uppercase; }
+        .nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
+
+        .menu-toggle { display: none; font-size: 2rem; cursor: pointer; color: var(--light); }
+
+        /* --- DESIGN CONTENU PRÉSIDENT --- */
+        .pres-hero {
+            height: 50vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/president.jpg') center/top no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+            text-align: center;
+        }
+
+        .pres-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 10vw, 5rem); }
+
+        .bio-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            min-height: 600px;
+            background: var(--gray);
+        }
+
+        .bio-image {
+            background: url('images/president.jpg') center/cover no-repeat;
+            filter: grayscale(100%);
+            transition: 0.5s ease;
+            min-height: 400px;
+        }
+
+        .bio-image:hover { filter: grayscale(0%); }
+
+        .bio-content {
+            padding: 60px 8%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .bio-content h2 { 
+            font-family: 'Bebas Neue', sans-serif; 
+            font-size: 3rem; 
+            color: var(--primary); 
+            margin-bottom: 0.5rem;
+        }
+
+        .bio-content .subtitle {
+            font-weight: bold;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .bio-text p { margin-bottom: 1.5rem; color: #ddd; font-size: 1.05rem; }
+
+        .quote-box {
+            border-left: 4px solid var(--primary);
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--light);
+        }
+
+        /* --- FOOTER (IDENTIQUE ACCUEIL) --- */
+        footer { text-align: center; padding: 2rem; background: #000; border-top: 1px solid #333; color: var(--text-muted); }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-menu { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--dark); padding: 2rem; border-bottom: 2px solid var(--primary); }
+            .nav-menu.active { display: flex; }
+            .menu-toggle { display: block; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">🏀 RAMS <span>BASKETBALL</span></div>
+    <div class="menu-toggle" id="menuToggle">☰</div>
+    <nav id="mobileMenu" class="nav-menu">
+        <a href="index.html">Accueil</a>
+        <a href="president.html" class="active">Mot du Président</a>
+        <a href="programme_fille.html">Programme Filles</a>
+        <a href="partenaire.html">Devenir Partenaire</a>
+        <a href="boutique.html">Boutique</a>
+        <a href="inscription.html">Inscription</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="pres-hero">
+    <h1>LE PRÉSIDENT FONDATEUR</h1>
+</section>
+
+<main class="bio-container">
+    <div class="bio-image"></div>
+    <div class="bio-content">
+        <h2>Stéphane Roméo HOUNME</h2>
+        <p class="subtitle">Visionnaire • Coach • Éducateur</p>
+        
+        <div class="bio-text">
+            <p>La création de <strong>RAMS Basketball Academy</strong> est née d’une vision simple mais ambitieuse : offrir aux jeunes un cadre structuré où le sport devient un véritable levier d’éducation, de discipline et de réussite.</p>
+            
+            <div class="quote-box">
+                "Le développement d’un enfant ne se limite pas à la performance sportive. Il repose également sur la formation du caractère et le respect des valeurs."
+            </div>
+
+            <p>En tant que Coach de Basketball et Professeur d’Éducation Physique et Sportive, mon engagement va au-delà du terrain. Nous ne formons pas uniquement des joueurs talentueux, mais des citoyens responsables.</p>
+            
+            <p>Je remercie sincèrement tous nos partenaires, nos parents et nos encadreurs pour leur confiance. Ensemble, nous bâtissons une institution tournée vers l’excellence.</p>
+            
+            <p><strong>Sportivement,</strong><br>Président de RAMS Basketball Academy</p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>© 2026 RAMS Basketball Academy - Tous droits réservés</p>
+</footer>
+
+<script>
+    // SCRIPT MENU TOGGLE (Même que l'accueil)
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+    });
+
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    });
+</script>
+
+</body>
+</html>
