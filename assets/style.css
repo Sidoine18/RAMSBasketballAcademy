@@ -400,6 +400,24 @@ header.scrolled{ padding:.6rem 0; background:rgba(11,12,14,.9); }
 
 .signature-line{ font-family:var(--font-display); color:var(--flash); font-size:1.4rem; margin-top:.5rem; letter-spacing:1px; }
 
+/* ================= AXIS CARDS (program pillars) ================= */
+.axis-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.6rem; }
+.axis-card{
+  background:var(--bg-card); border:1px solid var(--line); border-top:3px solid var(--flash);
+  border-radius:12px; padding:2.2rem; transition:transform .3s ease, background .3s ease, border-color .3s ease;
+}
+.axis-card:hover{ transform:translateY(-8px); background:var(--bg-soft); border-color:var(--flash); }
+.axis-icon{
+  width:46px; height:46px; border-radius:50%; background:rgba(255,90,31,.12); color:var(--flash);
+  display:flex; align-items:center; justify-content:center; margin-bottom:1.3rem;
+}
+.axis-icon svg{ width:22px; height:22px; }
+.axis-card h3{ font-size:1.5rem; color:var(--chalk); font-family:var(--font-body); font-weight:700; margin-bottom:.6rem; }
+.axis-card p{ color:var(--muted); font-size:.95rem; margin:0; }
+
+/* ================= INFO GRID (two-column highlight blocks) ================= */
+.info-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:1.6rem; }
+
 /* ================= FOOTER ================= */
 footer{
   text-align:center; padding:3rem 1.5rem 2.2rem; background:#000; border-top:1px solid var(--line);
