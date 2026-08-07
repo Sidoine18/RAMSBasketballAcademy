@@ -491,6 +491,25 @@ header.scrolled{ padding:.6rem 0; background:rgba(11,12,14,.9); }
   .field-row{ grid-template-columns:1fr; }
 }
 
+/* ================= PARTNER SPOTLIGHT ================= */
+.partner-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.6rem; }
+.partner-card{
+  background:var(--bg-card); border:1px dashed rgba(255,90,31,.45); border-radius:16px;
+  padding:2.2rem; display:flex; align-items:center; gap:1.6rem; transition:border-color .3s ease, transform .3s ease;
+}
+.partner-card:hover{ border-color:var(--flash); border-style:solid; transform:translateY(-6px); }
+.partner-card .partner-logo{
+  width:96px; height:96px; flex:none; object-fit:contain; background:#fff; border-radius:12px;
+  padding:.7rem; filter:grayscale(100%); transition:filter .4s ease;
+}
+.partner-card:hover .partner-logo{ filter:grayscale(0%); }
+.partner-card h3{ font-size:1.5rem; color:var(--chalk); font-family:var(--font-body); font-weight:700; margin-bottom:.4rem; }
+.partner-card p{ color:var(--muted); font-size:.92rem; margin:0; }
+.partner-card a.partner-visit{ color:var(--flash); font-weight:600; font-size:.85rem; display:inline-block; margin-top:.6rem; }
+@media (max-width:560px){
+  .partner-card{ flex-direction:column; text-align:center; }
+}
+
 /* ================= FOOTER ================= */
 footer{
   text-align:center; padding:3rem 1.5rem 2.2rem; background:#000; border-top:1px solid var(--line);
