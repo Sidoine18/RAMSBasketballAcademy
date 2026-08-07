@@ -545,6 +545,46 @@ header.scrolled{ padding:.6rem 0; background:rgba(11,12,14,.9); }
 .btn-outline:hover{ background:var(--flash); color:#0b0c0e; transform:translateY(-3px); }
 .btn-outline svg{ width:16px; height:16px; }
 
+/* ================= CATEGORY CHIPS ================= */
+.category-chips{ display:flex; gap:.8rem; flex-wrap:wrap; }
+.chip{
+  font-family:var(--font-mono); font-size:.82rem; color:var(--flash-2); background:rgba(255,90,31,.1);
+  border:1px solid rgba(255,90,31,.3); padding:.55rem 1.3rem; border-radius:100px; letter-spacing:.03em;
+}
+
+/* ================= FLOATING-LABEL FORM (contact) ================= */
+.field-float{ position:relative; margin-bottom:2.3rem; }
+.field-float input, .field-float textarea{
+  width:100%; background:transparent; border:none; border-bottom:1px solid var(--line);
+  padding:.85rem 0; color:var(--chalk); font-family:inherit; font-size:1rem; transition:.3s ease; resize:vertical;
+}
+.field-float input:focus, .field-float textarea:focus{ outline:none; border-bottom-color:var(--flash); }
+.field-float label{
+  position:absolute; top:.85rem; left:0; color:var(--muted); text-transform:uppercase; font-weight:700;
+  font-size:.72rem; letter-spacing:.06em; pointer-events:none; transition:.3s ease;
+}
+.field-float input:focus ~ label, .field-float input:valid ~ label,
+.field-float textarea:focus ~ label, .field-float textarea:valid ~ label{
+  top:-1.1rem; font-size:.68rem; color:var(--flash);
+}
+
+/* ================= MAP ================= */
+.map-frame{
+  width:100%; height:320px; border:0; border-radius:14px; margin-top:2rem;
+  filter:grayscale(65%) contrast(1.1) brightness(.85); transition:filter .4s ease;
+}
+.map-frame:hover{ filter:grayscale(0%) contrast(1) brightness(1); }
+
+/* ================= CONTACT LAYOUT ================= */
+.contact-layout{ grid-template-columns:1.1fr 1.3fr; align-items:start; }
+.contact-info-grid{ grid-template-columns:1fr 1fr; margin-top:0; }
+@media (max-width:860px){
+  .contact-layout{ grid-template-columns:1fr; }
+}
+@media (max-width:480px){
+  .contact-info-grid{ grid-template-columns:1fr; }
+}
+
 /* ================= FOOTER ================= */
 footer{
   text-align:center; padding:3rem 1.5rem 2.2rem; background:#000; border-top:1px solid var(--line);
