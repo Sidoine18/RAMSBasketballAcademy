@@ -510,6 +510,41 @@ header.scrolled{ padding:.6rem 0; background:rgba(11,12,14,.9); }
   .partner-card{ flex-direction:column; text-align:center; }
 }
 
+/* ================= SHOP / PRODUCTS ================= */
+.shop-filters{ display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; margin-bottom:3rem; }
+.filter-btn{
+  background:var(--bg-card); border:1px solid var(--line); color:var(--muted); padding:.6rem 1.5rem;
+  border-radius:100px; font-family:var(--font-mono); font-size:.78rem; text-transform:uppercase;
+  letter-spacing:.07em; cursor:pointer; transition:.25s ease;
+}
+.filter-btn:hover{ border-color:var(--flash); color:var(--chalk); }
+.filter-btn.active{ background:var(--flash); border-color:var(--flash); color:#0b0c0e; font-weight:700; }
+
+.shop-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.8rem; }
+.product-card{
+  background:var(--bg-card); border:1px solid var(--line); border-radius:14px; overflow:hidden;
+  transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+.product-card:hover{ transform:translateY(-8px); border-color:var(--flash); box-shadow:0 20px 45px -20px rgba(0,0,0,.6); }
+.product-card.is-hidden{ display:none; }
+.product-image{ position:relative; height:300px; overflow:hidden; background:var(--bg-soft); }
+.product-image img{ width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+.product-card:hover .product-image img{ transform:scale(1.08); }
+.product-info{ padding:1.8rem; text-align:center; }
+.product-info h3{ font-size:1.5rem; color:var(--chalk); font-family:var(--font-body); font-weight:700; margin-bottom:.5rem; }
+.price-note{
+  font-family:var(--font-mono); font-size:.75rem; color:var(--muted); text-transform:uppercase;
+  letter-spacing:.06em; margin-bottom:1.3rem;
+}
+.btn-outline{
+  display:inline-flex; align-items:center; justify-content:center; gap:.5rem; width:100%;
+  background:transparent; color:var(--flash); border:1.5px solid var(--flash); padding:.85rem 1.6rem;
+  border-radius:100px; text-decoration:none; font-weight:700; text-transform:uppercase; font-size:.8rem;
+  letter-spacing:.04em; transition:transform .25s ease, background .25s ease, color .25s ease;
+}
+.btn-outline:hover{ background:var(--flash); color:#0b0c0e; transform:translateY(-3px); }
+.btn-outline svg{ width:16px; height:16px; }
+
 /* ================= FOOTER ================= */
 footer{
   text-align:center; padding:3rem 1.5rem 2.2rem; background:#000; border-top:1px solid var(--line);
