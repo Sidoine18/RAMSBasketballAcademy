@@ -50,10 +50,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
-<style>
-  .page-hero{ --page-hero-img: url('images/president.jpg'); }
-  .bio-image{ --bio-img: url('images/president.jpg'); }
-</style>
 </head>
 <body>
 
@@ -83,6 +79,8 @@
 <main id="main">
 
   <section class="page-hero">
+    <img src="images/president.jpg" alt="" class="page-hero-bg" aria-hidden="true">
+    <div class="page-hero-overlay" aria-hidden="true"></div>
     <div class="court-lines" aria-hidden="true"></div>
     <div class="page-hero-inner">
       <p class="eyebrow" style="justify-content:center;">Gouvernance</p>
@@ -92,7 +90,9 @@
   </section>
 
   <section class="bio-container reveal">
-    <div class="bio-image" role="img" aria-label="Stéphane Roméo Hounme, Président fondateur de RAMS Basketball Academy"></div>
+    <div class="bio-image">
+      <img src="images/president.jpg" alt="Stéphane Roméo Hounme, Président fondateur de RAMS Basketball Academy">
+    </div>
     <div class="bio-content">
       <h2>Stéphane Roméo Hounme</h2>
       <p class="subtitle">Visionnaire · Coach · Éducateur</p>
